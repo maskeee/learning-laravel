@@ -49,6 +49,7 @@ class UserController extends Controller
             'email' => $request->email,
             'password' => $request->password
         ]);
+        Auth::login($user);
         session()->flash('success','Success!');
         return redirect()->route('users.show',[$user]);
     }
