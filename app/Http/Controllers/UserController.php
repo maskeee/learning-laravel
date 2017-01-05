@@ -9,6 +9,13 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 class UserController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth',[
+            'only' => ['edit','update']
+        ]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -39,9 +46,9 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'name' => 'required|max:50',
+            'name' => 'required|min:4|max:20',
             'email' => 'required|email|unique:users|max:255',
-            'password' => 'required|confirmed'
+            'password' => 'required|confirmed|min:6|max:16'
         ]);
 
         $user = User::create([
@@ -74,7 +81,9 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::findOrFail($id);
+        $this->authorize('update', $user);
+        return view('user.edit',compact('user'));
     }
 
     /**
@@ -86,7 +95,23 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            'name' => 'required|min:4|max:20',
+            'password' => 'confirmed|min:6|max:16'
+        ]);
+
+        $user = User::findOrFail($id);
+        $this->authorize('update', $user);
+
+        $data = array_filter([
+            'name' => $request->name,
+            'password' => $request->password
+        ]);
+        $user->update($data);
+
+        session()->flash('success', '个人资料更新成功！');
+
+        return redirect()->route('users.show',$id);
     }
 
     /**
