@@ -6,6 +6,7 @@
   </head>
   <body>
     @include('layouts.header')
+    @include('shared.messages')
     <div class="container">
         @yield('content')
         @include('layouts.footer')
