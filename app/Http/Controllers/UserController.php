@@ -13,7 +13,7 @@ class UserController extends Controller
     public function __construct()
     {
         $this->middleware('auth',[
-            'only' => ['edit','update']
+            'only' => ['edit','update','destroy']
         ]);
         $this->middleware('guest', [
             'only' => ['create']
@@ -26,7 +26,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+        $users = User::paginate(30);
         return view('user.index',compact('users'));
     }
 
@@ -126,7 +126,11 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::findOrFail($id);
+        $this->authorize('destroy',$user);
+        $user->delete();
+        session()->flash('success','User Deleted!');
+        return back();
     }
 
 }

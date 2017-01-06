@@ -9,6 +9,13 @@ use App\Http\Controllers\Controller;
 
 class StaticPagesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth',[
+            'only' => ['destroy']
+        ]);
+    }
+
     public function home()
     {
         return view('static_pages/home');

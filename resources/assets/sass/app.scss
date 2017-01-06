@@ -192,3 +192,9 @@ input {
     border-bottom: 1px solid $gray-lighter;
   }
 }
+
+.delete-btn {
+  float: right;
+  position: relative;
+  right: 0;
+}
