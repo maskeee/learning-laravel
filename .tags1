@@ -4,17 +4,3 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-UserController	C:\Users\cja\Code\Laravel\app\Http\Controllers\UserController.php	/^class UserController extends Controller$/;"	class	line:10
-__construct	C:\Users\cja\Code\Laravel\app\Http\Controllers\UserController.php	/^    public function __construct()$/;"	function	line:13
-index	C:\Users\cja\Code\Laravel\app\Http\Controllers\UserController.php	/^    public function index()$/;"	function	line:24
-create	C:\Users\cja\Code\Laravel\app\Http\Controllers\UserController.php	/^    public function create()$/;"	function	line:34
-store	C:\Users\cja\Code\Laravel\app\Http\Controllers\UserController.php	/^    public function store(Request $request)$/;"	function	line:46
-user	C:\Users\cja\Code\Laravel\app\Http\Controllers\UserController.php	/^        $user = User::create([$/;"	variable	line:54
-show	C:\Users\cja\Code\Laravel\app\Http\Controllers\UserController.php	/^    public function show($id)$/;"	function	line:70
-user	C:\Users\cja\Code\Laravel\app\Http\Controllers\UserController.php	/^        $user = User::findOrFail($id);$/;"	variable	line:72
-edit	C:\Users\cja\Code\Laravel\app\Http\Controllers\UserController.php	/^    public function edit($id)$/;"	function	line:82
-user	C:\Users\cja\Code\Laravel\app\Http\Controllers\UserController.php	/^        $user = User::findOrFail($id);$/;"	variable	line:84
-update	C:\Users\cja\Code\Laravel\app\Http\Controllers\UserController.php	/^    public function update(Request $request, $id)$/;"	function	line:96
-user	C:\Users\cja\Code\Laravel\app\Http\Controllers\UserController.php	/^        $user = User::findOrFail($id);$/;"	variable	line:103
-data	C:\Users\cja\Code\Laravel\app\Http\Controllers\UserController.php	/^        $data = array_filter([$/;"	variable	line:106
-destroy	C:\Users\cja\Code\Laravel\app\Http\Controllers\UserController.php	/^    public function destroy($id)$/;"	function	line:123
