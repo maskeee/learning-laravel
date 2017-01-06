@@ -15,6 +15,9 @@ class UserController extends Controller
         $this->middleware('auth',[
             'only' => ['edit','update']
         ]);
+        $this->middleware('guest', [
+            'only' => ['create']
+        ]);
     }
     /**
      * Display a listing of the resource.
