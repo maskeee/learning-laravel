@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Auth;
+use App\Models\User;
 class SessionsController extends Controller
 {
     //
@@ -53,7 +54,7 @@ class SessionsController extends Controller
             }
     }
 
-    public function destory()
+    public function destroy()
     {
         Auth::logout();
         session()->flash('success','Logout!');
