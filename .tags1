@@ -4,13 +4,9 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-User	C:\Users\cja\Code\Laravel\app\Models\User.php	/^class User extends Model implements AuthenticatableContract,$/;"	class	line:13
-table	C:\Users\cja\Code\Laravel\app\Models\User.php	/^    protected $table = 'users';$/;"	variable	line:24
-table	C:\Users\cja\Code\Laravel\app\Models\User.php	/^    protected $table = 'users';$/;"	variable	line:24
-fillable	C:\Users\cja\Code\Laravel\app\Models\User.php	/^    protected $fillable = ['name', 'email', 'password'];$/;"	variable	line:31
-fillable	C:\Users\cja\Code\Laravel\app\Models\User.php	/^    protected $fillable = ['name', 'email', 'password'];$/;"	variable	line:31
-hidden	C:\Users\cja\Code\Laravel\app\Models\User.php	/^    protected $hidden = ['password', 'remember_token'];$/;"	variable	line:38
-hidden	C:\Users\cja\Code\Laravel\app\Models\User.php	/^    protected $hidden = ['password', 'remember_token'];$/;"	variable	line:38
-gravatar	C:\Users\cja\Code\Laravel\app\Models\User.php	/^    public function gravatar($size = '100')$/;"	function	line:40
-hash	C:\Users\cja\Code\Laravel\app\Models\User.php	/^        $hash = md5(strtolower(trim($this->attributes['email'])));$/;"	variable	line:42
-setPasswordAttribute	C:\Users\cja\Code\Laravel\app\Models\User.php	/^    public function setPasswordAttribute($password)$/;"	function	line:46
+SessionsController	C:\Users\cja\Code\Laravel\app\Http\Controllers\SessionsController.php	/^class SessionsController extends Controller$/;"	class	line:11
+__construct	C:\Users\cja\Code\Laravel\app\Http\Controllers\SessionsController.php	/^    public function __construct()$/;"	function	line:14
+create	C:\Users\cja\Code\Laravel\app\Http\Controllers\SessionsController.php	/^    public function create()$/;"	function	line:21
+store	C:\Users\cja\Code\Laravel\app\Http\Controllers\SessionsController.php	/^    public function store(Request $request)$/;"	function	line:26
+credentials	C:\Users\cja\Code\Laravel\app\Http\Controllers\SessionsController.php	/^           $credentials = [$/;"	variable	line:33
+destory	C:\Users\cja\Code\Laravel\app\Http\Controllers\SessionsController.php	/^    public function destory()$/;"	function	line:56
