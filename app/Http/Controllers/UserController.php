@@ -16,7 +16,7 @@ class UserController extends Controller
     public function __construct()
     {
         $this->middleware('auth',[
-            'only' => ['edit','update','destroy']
+            'only' => ['edit','update','destroy','followers','followings']
         ]);
         $this->middleware('guest', [
             'only' => ['create']
@@ -31,7 +31,11 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::where('activated',true)->paginate(30);
+        if(!Auth::user()->is_admin){
+            session()->flash('warning','你是管理员咩？');
+            return redirect()->route('users.show',Auth::user());
+        }
+        $users = User::where('activated',true)->paginate(20);
         return view('user.index',compact('users'));
     }
 
@@ -154,7 +158,8 @@ class UserController extends Controller
         });
     }
 
-    public function confirmEmail($token){
+    public function confirmEmail($token)
+    {
         $user = User::where('activation_token',$token)->firstOrFail();
 
         $user->activated = true;
@@ -162,9 +167,25 @@ class UserController extends Controller
         Auth::login($user);
         $user->save();
 
-
-
         session()->flash('success',"激活成功");
         return redirect()->route('users.show',[$user]);
+    }
+
+    public function followers($id)
+    {
+        $user = User::findOrFail($id);
+        $users = $user->followers()->paginate('20');
+        $title = '粉丝';
+
+        return view('user.show_follow',compact('users','title'));
+    }
+
+    public function followings($id)
+    {
+        $user = User::findOrFail($id);
+        $users = $user->followings()->paginate('20');
+        $title = '关注';
+
+        return view('user.show_follow',compact('users','title'));
     }
 }
