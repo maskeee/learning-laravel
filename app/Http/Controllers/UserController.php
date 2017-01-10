@@ -79,7 +79,8 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::findOrFail($id);
-        return view('user.show',compact('user'));
+        $statuses = $user->statuses()->orderby('created_at','desc')->paginate('10');
+        return view('user.show',compact('user','statuses'));
     }
 
     /**
